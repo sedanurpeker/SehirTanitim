@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Sehir_Tanitim.Models.Siniflar.District>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    h2 {
+        font-size: 30px;
+        line-height: 29px;
+        color: #2E7D32;
+        padding: 30px 0;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .table-container {
+        max-width: 900px;
+        margin: 0 auto 40px;
+        padding: 0 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid #a88ede;
+        box-shadow: 0 4px 8px rgba(117, 42, 165, 0.15);
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    thead {
+        background-color: #752AA5;
+        color: white;
+        font-weight: bold;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+    }
+</style>
+
+<h2 class="text-center mb-4">Bursa'nın İlçeleri</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Nüfus</th>
+            <th>Yüzölçümü (km²)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Ad</td>
+                    <td>@item.Nufus</td>
+                    <td>@item.YuzOlcumu</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" style="text-align: center; color: red;">Veritabanından veri alınamadı. Lütfen veritabanı bağlantısını kontrol edin.</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,104 @@
+﻿@using Sehir_Tanitim.Models.Siniflar
+@model User
+
+@{
+    ViewBag.Title = "Kayıt Ol";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Ya da _AdminLayout.cshtml, projene göre ayarla
+}
+
+<div class="w3-container w3-card-4 w3-light-grey w3-margin" style="max-width: 500px; margin: 0 auto;">
+    <h2 class="w3-text-teal"><i class="fas fa-user-plus"></i> Kayıt Ol</h2>
+    <hr />
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="w3-panel w3-red w3-round-large w3-animate-opacity">
+            <p>@ViewBag.ErrorMessage</p>
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="w3-panel w3-green w3-round-large w3-animate-opacity">
+            <p>@TempData["SuccessMessage"]</p>
+        </div>
+    }
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "w3-container", @id = "registerForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-user w3-margin-right"></i>Ad</label>
+            @Html.TextBoxFor(x => x.Ad, new { @class = "w3-input w3-border w3-round", @required = "required" })
+            @Html.ValidationMessageFor(x => x.Ad, "", new { @class = "w3-text-red" })
+        </div>
+
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-user w3-margin-right"></i>Soyad</label>
+            @Html.TextBoxFor(x => x.Soyad, new { @class = "w3-input w3-border w3-round", @required = "required" })
+            @Html.ValidationMessageFor(x => x.Soyad, "", new { @class = "w3-text-red" })
+        </div>
+
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-envelope w3-margin-right"></i>Email</label>
+            @Html.TextBoxFor(x => x.Email, new { @class = "w3-input w3-border w3-round", @type = "email", @required = "required" })
+            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "w3-text-red" })
+        </div>
+
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-lock w3-margin-right"></i>Şifre</label>
+            @Html.PasswordFor(x => x.Sifre, new { @class = "w3-input w3-border w3-round", @required = "required" })
+            @Html.ValidationMessageFor(x => x.Sifre, "", new { @class = "w3-text-red" })
+        </div>
+        @Html.HiddenFor(x => x.Rol, new { Value = "Uye" })
+
+        <div class="w3-section">
+            <button type="submit" class="w3-button w3-teal w3-round-large w3-hover-teal w3-block">
+                <i class="fas fa-check w3-margin-right"></i>Kayıt Ol
+            </button>
+        </div>
+        <div class="w3-section">
+            <a href="@Url.Action("Login", "Account")" class="w3-button w3-grey w3-round-large w3-hover-grey w3-block">
+                <i class="fas fa-sign-in-alt w3-margin-right"></i>Zaten hesabım var, giriş yap
+            </a>
+        </div>
+    }
+</div>
+
+<style>
+    .w3-card-4 {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .w3-section label {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .w3-input {
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+        .w3-input:focus {
+            border-color: #1abc9c;
+            box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+            outline: none;
+        }
+
+    .w3-button {
+        transition: transform 0.2s;
+    }
+
+        .w3-button:hover {
+            transform: translateY(-2px);
+        }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+    }
+</style>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Sehir_Tanitim.Models.Siniflar.TouristPlace>
+
+@{
+    ViewBag.Title = "Turistik Yerler";
+}
+
+<h2 class="my-3" style="color: #2E7D32; text-align:center; "><b>Bursa'nın En Güzel 6 Turistik Noktası</b></h2>
+
+@if (Model != null && Model.Any())
+{
+    <ul style="padding-left: 20px;">
+        <!-- padding-left olmalı ki madde işaretleri yerleşsin -->
+        @foreach (var yer in Model)
+        {
+            <li style="margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+                <img src="@yer.GorselUrl" alt="@yer.Ad" style="width: 150px; height: auto; margin-right: 20px; border-radius: 8px; object-fit: cover; float:left; margin-right: 20px;" />
+                <div>
+                    <h3 style="margin: 0 0 10px 0;">@yer.Ad</h3>
+                    <p style="max-width: 1250px; color: #555;">@yer.Aciklama</p>
+                </div>
+                <div style="clear: both;"></div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Henüz turistik yer verisi eklenmemiş.</p>
+}

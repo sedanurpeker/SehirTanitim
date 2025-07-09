@@ -1,0 +1,26 @@
+﻿@model Sehir_Tanitim.Models.Siniflar.Introduction
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    h1 {
+        color: #2E7D32;
+        text-align: center;
+    }
+
+    .intro-image {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        width: 755px;
+        height: 350px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+</style>
+
+<h1><b>Yeşil Bursa'nın Genel Tanıtımı</b></h1>
+<img src="https://i.hizliresim.com/b2gh4om.jpg?_gl=1*rssz3n*_ga*MjExMTcwNDc2LjE3NDE4OTM4NzA.*_ga_M9ZRXYS2YN*czE3NDg1MzgyNTkkbzckZzEkdDE3NDg1MzkzMDQkajQ1JGwwJGgw"
+     alt="Bursa Görseli" class="intro-image" />
+<p> @Model.Description</p>
+

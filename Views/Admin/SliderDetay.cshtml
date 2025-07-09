@@ -1,0 +1,50 @@
+﻿@using Sehir_Tanitim.Models.Siniflar
+@model Slider
+@{
+    ViewBag.Title = "SliderDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container w3-card-4 w3-light-grey w3-margin">
+    <h2 class="w3-text-teal"><i class="fas fa-info-circle"></i> Slider Detay</h2>
+    <hr />
+
+    <div class="w3-section">
+        <label class="w3-text-blue"><i class="fas fa-id-badge w3-margin-right"></i>ID</label>
+        <p class="w3-large w3-text-dark-grey">@Model.Id</p>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.FotoUrl))
+    {
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-image w3-margin-right"></i>Görsel</label> <br />
+            <img src="@Model.FotoUrl" alt="Turistik Yer Görseli" class="w3-image" style="max-width: 300px; border-radius: 8px;" />
+        </div>
+    }
+
+
+    <div class="w3-section">
+        <a href="@Url.Action("Index", "Admin")" class="w3-button w3-teal w3-round-large w3-hover-teal w3-block">
+            <i class="fas fa-arrow-left w3-margin-right"></i>Geri Dön
+        </a>
+    </div>
+</div>
+
+<style>
+    .w3-card-4 {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .w3-section label {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+    }
+</style>

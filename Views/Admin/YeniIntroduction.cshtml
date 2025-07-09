@@ -1,0 +1,73 @@
+﻿@using Sehir_Tanitim.Models.Siniflar
+@model Introduction
+@{
+    ViewBag.Title = "YeniIntroduction";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container w3-card-4 w3-light-grey w3-margin">
+    <h2 class="w3-text-teal"><i class="fas fa-plus-circle"></i> Yeni Tanıtım Ekleme</h2>
+    <hr />
+
+    @using (Html.BeginForm("YeniIntroduction", "Admin", FormMethod.Post, new { @class = "w3-container", @id = "IntroductionForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-align-left w3-margin-right"></i>Açıklama</label>
+            @Html.TextAreaFor(x => x.Description, new { @class = "w3-input w3-border w3-round", @required = "required", @rows = "5" })
+            @Html.ValidationMessageFor(x => x.Description, "", new { @class = "w3-text-red" })
+        </div>
+
+        <div class="w3-section">
+            <button type="submit" class="w3-button w3-green w3-round-large w3-hover-green w3-block">
+                <i class="fas fa-save w3-margin-right"></i>Kaydet
+            </button>
+        </div>
+        <div class="w3-section">
+            <a href="@Url.Action("TanitimGetir", "Admin")" class="w3-button w3-teal w3-round-large w3-hover-teal w3-block">
+                <i class="fas fa-arrow-left w3-margin-right"></i>Geri Dön
+            </a>
+        </div>
+    }
+</div>
+
+
+
+<style>
+    .w3-card-4 {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .w3-section label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .w3-input {
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+        .w3-input:focus {
+            border-color: #1abc9c;
+            box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+            outline: none;
+        }
+
+    .w3-button {
+        transition: transform 0.2s;
+    }
+
+        .w3-button:hover {
+            transform: translateY(-2px);
+        }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+    }
+</style>

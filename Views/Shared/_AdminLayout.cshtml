@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Yönetim Paneli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Özelleştirilmiş stiller */
+        .w3-sidebar {
+            height: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #2c3e50;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+            .w3-sidebar h3 {
+                padding: 16px;
+                background-color: #34495e;
+                margin: 0;
+                text-align: center;
+            }
+
+            .w3-sidebar .w3-button {
+                color: #ecf0f1;
+                padding: 16px;
+                text-decoration: none;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .w3-sidebar .w3-button:hover {
+                    background-color: #34495e;
+                    color: #fff;
+                }
+
+        .w3-bar-item.active {
+            background-color: #3498db;
+            color: #fff !important;
+        }
+
+        .content {
+            margin-left: 15%;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        /* Admin Paneli başlığı için gradyan ve gölgelendirme */
+        .w3-container.header {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+            .w3-container.header:hover {
+                transform: translateY(-2px);
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" style="width:15%">
+<h3 class="w3-bar-item">Menü</h3>
+        <a href="/Admin/Index/" class="w3-bar-item w3-button @(ViewBag.ActiveMenu == "Slider" ? "active" : "")"><i class="fas fa-home"></i> Anasayfa</a>
+        <a href="/Admin/TanitimGetir/" class="w3-bar-item w3-button @(ViewBag.ActiveMenu == "Tanıtım" ? "active" : "")"><i class="fas fa-landmark"></i> Tanıtım</a>
+        <a href="/Admin/NufusGetir/" class="w3-bar-item w3-button @(ViewBag.ActiveMenu == "Nüfus Dağılımı" ? "active" : "")"><i class="fas fa-chart-bar"></i> Nüfus Dağılımı</a>
+        <a href="/Admin/IlceGetir/" class="w3-bar-item w3-button @(ViewBag.ActiveMenu == "İlçeler" ? "active" : "")"><i class="fas fa-map-marker"></i> İlçeler</a>
+        <a href="/Admin/TuristikYerGetir/" class="w3-bar-item w3-button @(ViewBag.ActiveMenu == "Turistik Yerler" ? "active" : "")"><i class="fas fa-camera"></i> Turistik Yerler</a>
+        <a href="/Home/Index/" class="w3-bar-item w3-button"><i class="fas fa-globe"></i> Siteye Git</a>
+        <a href="/Account/Logout/" class="w3-bar-item w3-button"><i class="fas fa-sign-out-alt"></i> Çıkış Yap (@Session["UserName"])</a>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content">
+        <div class="w3-container header">
+            <h4>Admin Yönetim Paneli</h4>
+        </div>
+        <div class="w3-container">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- jQuery ve diğer script'ler -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

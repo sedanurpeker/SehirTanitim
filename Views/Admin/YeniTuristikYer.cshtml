@@ -1,0 +1,91 @@
+﻿@using Sehir_Tanitim.Models.Siniflar
+@model TouristPlace
+
+@{
+    ViewBag.Title = "Yeni Turistik Yer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container w3-card-4 w3-light-grey w3-margin">
+    <h2 class="w3-text-teal"><i class="fas fa-plus-circle"></i> Yeni Turistik Yer Ekleme</h2>
+    <hr />
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="w3-panel w3-red w3-round-large w3-animate-opacity">
+            <p>@ViewBag.ErrorMessage</p>
+        </div>
+    }
+
+    @using (Html.BeginForm("YeniTuristikYer", "Admin", FormMethod.Post, new { @class = "w3-container", @id = "touristPlaceForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-map-marker w3-margin-right"></i>Ad</label>
+            @Html.TextBoxFor(x => x.Ad, new { @class = "w3-input w3-border w3-round", @required = "required" })
+            @Html.ValidationMessageFor(x => x.Ad, "", new { @class = "w3-text-red" })
+        </div>
+
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-align-left w3-margin-right"></i>Açıklama</label>
+            @Html.TextAreaFor(x => x.Aciklama, 5, 50, new { @class = "w3-input w3-border w3-round", @required = "required" })
+            @Html.ValidationMessageFor(x => x.Aciklama, "", new { @class = "w3-text-red" })
+        </div>
+
+        <div class="w3-section">
+            <label class="w3-text-blue"><i class="fas fa-image w3-margin-right"></i>Görsel URL</label>
+            @Html.TextBoxFor(x => x.GorselUrl, new { @class = "w3-input w3-border w3-round" })
+            @Html.ValidationMessageFor(x => x.GorselUrl, "", new { @class = "w3-text-red" })
+        </div>
+
+
+        <div class="w3-section">
+            <button type="submit" class="w3-button w3-green w3-round-large w3-hover-green w3-block">
+                <i class="fas fa-save w3-margin-right"></i>Kaydet
+            </button>
+        </div>
+        <div class="w3-section">
+            <a href="@Url.Action("TuristikYerGetir", "Admin")" class="w3-button w3-teal w3-round-large w3-hover-teal w3-block">
+                <i class="fas fa-arrow-left w3-margin-right"></i>Geri Dön
+            </a>
+        </div>
+    }
+</div>
+
+<style>
+    .w3-card-4 {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .w3-section label {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .w3-input {
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+        .w3-input:focus {
+            border-color: #1abc9c;
+            box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+            outline: none;
+        }
+
+    .w3-button {
+        transition: transform 0.2s;
+    }
+
+        .w3-button:hover {
+            transform: translateY(-2px);
+        }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+    }
+</style>

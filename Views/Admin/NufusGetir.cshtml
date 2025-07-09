@@ -1,0 +1,108 @@
+﻿@using Sehir_Tanitim.Models.Siniflar
+@model List<Population>
+
+@{
+    ViewBag.Title = "Nüfus Dağılımı";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="w3-container">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="w3-panel w3-green w3-round-large w3-animate-opacity">
+            <span onclick="this.parentElement.style.display='none'" class="w3-button w3-small w3-right">×</span>
+            <p>@TempData["SuccessMessage"]</p>
+        </div>
+    }
+
+    <h2 class="w3-text-teal"><i class="fas fa-chart-bar"></i> Nüfus Dağılımı Listesi</h2>
+    <hr />
+
+    <div class="w3-section">
+        <a href="@Url.Action("YeniNufus", "Admin")" class="w3-button w3-blue w3-round-large w3-hover-blue w3-margin-bottom">
+            <i class="fas fa-plus w3-margin-right"></i>Yeni Nüfus Kaydı Ekle
+        </a>
+    </div>
+
+    @if (Model.Any())
+    {
+        <table class="w3-table w3-bordered w3-hoverable w3-striped w3-card-4">
+            <thead class="w3-teal">
+                <tr>
+                    <th>ID</th>
+                    <th>Yıl</th>
+                    <th>Toplam Nüfus</th>
+                    <th>Kadın Sayısı</th>
+                    <th>Erkek Sayısı</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                    <th>Detaylar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.Id</td>
+                        <td>@x.Yil</td>
+                        <td>@x.NufusSayisi</td>
+                        <td>@x.KadinSayisi</td>
+                        <td>@x.ErkekSayisi</td>
+                        <td>
+                            <a href="/Admin/NufusSil/@x.Id" class="w3-button w3-red w3-small w3-round">
+                                <i class="fas fa-trash-alt"></i> Sil
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/Admin/NufusGuncelle/@x.Id" class="w3-button w3-orange w3-small w3-round">
+                                <i class="fas fa-edit"></i> Güncelle
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/Admin/NufusDetay/@x.Id" class="w3-button w3-blue w3-small w3-round">
+                                <i class="fas fa-info-circle"></i> Detaylar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="w3-panel w3-pale-yellow w3-border w3-round-large">
+            <p>Henüz nüfus kaydı bulunmamaktadır. Yeni bir nüfus kaydı eklemek için <a href="@Url.Action("YeniNufus", "Admin")" class="w3-text-blue w3-hover-text-orange">buraya tıklayın</a>.</p>
+        </div>
+    }
+</div>
+
+<style>
+    .w3-table th, .w3-table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .w3-table tbody tr:hover {
+        background-color: #f1f1f1;
+        transition: background-color 0.3s;
+    }
+
+    .w3-button {
+        transition: transform 0.2s;
+    }
+
+        .w3-button:hover {
+            transform: translateY(-2px);
+        }
+
+    .w3-card-4 {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+    }
+</style>
