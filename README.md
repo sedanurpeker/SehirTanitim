@@ -1,12 +1,12 @@
-# 🌆 Bursa Şehri Tanıtım Uygulaması
+# Bursa Şehri Tanıtım Uygulaması
 
 Bu proje, ASP.NET MVC 5 teknolojisi ile geliştirilen bir şehir tanıtım web sitesi ile, Android cihazlarda çalışan bir mobil uygulamadan oluşan **çok katmanlı** bir yazılım projesidir. Bursa şehrine ait turistik yerler, ilçeler, nüfus bilgileri gibi detaylar kullanıcı dostu bir arayüz ile sunulmaktadır.
 
 ---
 
-## 🚀 Proje Özellikleri
+## Proje Özellikleri
 
-### 🖥️ Web Uygulaması (ASP.NET MVC 5)
+### Web Uygulaması (ASP.NET MVC 5)
 
 - ASP.NET MVC 5 ile geliştirildi
 - Microsoft SQL Server veritabanı kullanıldı
@@ -21,7 +21,7 @@ Bu proje, ASP.NET MVC 5 teknolojisi ile geliştirilen bir şehir tanıtım web s
 - Mobil uyumlu (responsive) tasarım
 - View'larda dinamik içerik görüntüleme
 
-### 📱 Android Mobil Uygulama
+### Android Mobil Uygulama
 
 - Android Studio ile geliştirildi
 - WebView bileşeni kullanılarak web sitesi uygulama içinde gösterildi
@@ -31,7 +31,7 @@ Bu proje, ASP.NET MVC 5 teknolojisi ile geliştirilen bir şehir tanıtım web s
 
 ---
 
-## 🧠 Kullanılan Teknolojiler
+## Kullanılan Teknolojiler
 
 - ASP.NET MVC 5
 - Microsoft SQL Server
@@ -44,7 +44,7 @@ Bu proje, ASP.NET MVC 5 teknolojisi ile geliştirilen bir şehir tanıtım web s
 
 ---
 
-## 📁 Klasör Yapısı
+## Klasör Yapısı
 
 | Dosya/Klasör                | Açıklama                                 |
 |----------------------------|------------------------------------------|
@@ -60,20 +60,20 @@ Bu proje, ASP.NET MVC 5 teknolojisi ile geliştirilen bir şehir tanıtım web s
 
 ---
 
-## 📸 Ekran Görüntüleri
+## Ekran Görüntüleri
 
-📌 Web sitesi ekran görüntüleri, Android uygulama arayüzü ve admin paneli ekran görüntüleri için `22010903060_sedanur_peker.pdf` dosyasını inceleyebilirsiniz.
-
----
-
-## 👩‍💻 Geliştirici
-
-**👩 Sedanur Peker**  
-📧 İletişim için: sedanurpeker05@gmail.com
+ Web sitesi ekran görüntüleri, Android uygulama arayüzü ve admin paneli ekran görüntüleri için `22010903060_sedanur_peker.pdf` dosyasını inceleyebilirsiniz.
 
 ---
 
-## 📦 Kurulum & Kullanım
+## Geliştirici
+
+**Sedanur Peker**  
+**İletişim için:** sedanurpeker05@gmail.com
+
+---
+
+## Kurulum & Kullanım
 
 > Bu proje GitHub üzerinde sadece kaynak kodlarıyla paylaşılmıştır. Canlı demo: **[http://www.bursa0106.somee.com](http://www.bursa0106.somee.com)**
 
